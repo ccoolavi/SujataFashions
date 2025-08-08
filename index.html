@@ -64,249 +64,47 @@
         </div>
     </div>
 
-    <!-- Main Content Container -->
+    <!-- Tab Content Containers -->
     <main class="main-content">
-        
-        <!-- TAB 1: ACADEMY -->
-        <section id="academy-tab" class="tab-content active">
-            
-            <!-- Hero Section -->
-            <section class="hero-section" data-aos="fade-up">
-                <div class="hero-background">
-                    <div class="hero-overlay"></div>
-                </div>
+        <!-- Academy Tab Content -->
+        <div id="academy-content" class="tab-content active">
+            <section class="hero-section">
                 <div class="container">
                     <div class="hero-content">
-                        <h1 class="hero-title">Welcome to Excellence in Fashion Education</h1>
-                        <p class="hero-subtitle">25 years of nurturing creative talents and shaping successful fashion careers</p>
-                        <div class="hero-stats">
-                            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                                <span class="stat-number">25</span>
-                                <span class="stat-label">Years Experience</span>
-                            </div>
-                            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                                <span class="stat-number">150+</span>
-                                <span class="stat-label">Alumni</span>
-                            </div>
-                            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                                <span class="stat-number">6</span>
-                                <span class="stat-label">Specialized Courses</span>
-                            </div>
-                        </div>
-                        <div class="hero-cta">
-                            <button class="cta-button primary" onclick="scrollToSection('contact')">
-                                <i class="fas fa-phone"></i>
-                                <span>Enroll Now</span>
-                            </button>
+                        <h1 class="hero-title">Sujata Fashion Academy</h1>
+                        <p class="hero-subtitle">25 Years of Fashion Education Excellence</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary">Explore Courses</button>
+                            <button class="btn btn-outline">View Gallery</button>
                         </div>
                     </div>
                 </div>
             </section>
+        </div>
 
-            <!-- About Section -->
-            <section class="about-section" id="about" data-aos="fade-up">
+        <!-- Shop Tab Content -->
+        <div id="shop-content" class="tab-content">
+            <section class="shop-hero">
                 <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">About Our Academy</h2>
-                    </div>
-                    <div class="about-content">
-                        <div class="about-text">
-                            <h3>Our Story</h3>
-                            <p>With 25 years of excellence in fashion education, Sujata Fashion Academy has been nurturing creative talents and shaping successful fashion careers.</p>
-                            <h3>Our Mission</h3>
-                            <p>To provide world-class fashion education that empowers students with practical skills and creative vision needed to excel in the fashion industry.</p>
-                        </div>
-                    </div>
+                    <h1>Designer Fashion Shop</h1>
+                    <p>Premium quality designer outfits crafted with excellence</p>
                 </div>
             </section>
+        </div>
 
-            <!-- Contact Section -->
-            <section class="contact-section" id="contact" data-aos="fade-up">
+        <!-- Rent Tab Content -->
+        <div id="rent-content" class="tab-content">
+            <section class="rent-hero">
                 <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Get In Touch</h2>
-                    </div>
-                    <form class="contact-form" id="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fullname">Full Name *</label>
-                                <input type="text" id="fullname" name="fullname" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
-                    
-                    <div class="contact-info">
-                        <a href="https://wa.me/919999999999" target="_blank" class="whatsapp-link">
-                            <i class="fab fa-whatsapp"></i>
-                            WhatsApp Us Directly
-                        </a>
-                    </div>
+                    <h1>Premium Rental Collection</h1>
+                    <p>Exquisite outfits for your special occasions</p>
                 </div>
             </section>
-
-        </section>
-
-        <!-- TAB 2: SHOP -->
-        <section id="shop-tab" class="tab-content">
-            
-            <!-- Shop Header -->
-            <section class="shop-header" data-aos="fade-up">
-                <div class="container">
-                    <div class="section-header">
-                        <h1 class="section-title">Fashion Shop</h1>
-                        <p class="section-subtitle">Handcrafted fashion pieces from our academy</p>
-                    </div>
-                    
-                    <!-- Product Filters -->
-                    <div class="product-filters">
-                        <button class="filter-button active" onclick="filterProducts('all')">All</button>
-                        <button class="filter-button" onclick="filterProducts('C1')">Sarees</button>
-                        <button class="filter-button" onclick="filterProducts('C2')">Kurtas & Suits</button>
-                        <button class="filter-button" onclick="filterProducts('C3')">Blouses</button>
-                        <button class="filter-button" onclick="filterProducts('C4')">Dresses</button>
-                        <button class="filter-button" onclick="filterProducts('C5')">Baby Wear</button>
-                        <button class="filter-button" onclick="filterProducts('C6')">Casual</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Products Grid -->
-            <section class="products-section">
-                <div class="container">
-                    <div class="products-grid" id="products-grid">
-                        <!-- Products will be loaded dynamically -->
-                    </div>
-                </div>
-            </section>
-
-        </section>
-
-        <!-- TAB 3: RENT -->
-        <section id="rent-tab" class="tab-content rent-theme">
-            
-            <!-- Rent Header -->
-            <section class="rent-header" data-aos="fade-up">
-                <div class="container">
-                    <div class="section-header">
-                        <h1 class="section-title">Premium Rental Collection</h1>
-                        <p class="section-subtitle">Exclusive designer outfits for your special occasions</p>
-                    </div>
-                    
-                    <!-- Rental Categories -->
-                    <div class="rental-categories">
-                        <button class="category-button active" onclick="filterRentals('all')">All Collections</button>
-                        <button class="category-button" onclick="filterRentals('festival')">Festival Series</button>
-                        <button class="category-button" onclick="filterRentals('wedding')">Wedding Series</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Rentals Grid -->
-            <section class="rentals-section">
-                <div class="container">
-                    <div class="rentals-grid" id="rentals-grid">
-                        <!-- Rentals will be loaded dynamically -->
-                    </div>
-                </div>
-            </section>
-
-        </section>
-
+        </div>
     </main>
-
-    <!-- Product Detail Modal -->
-    <div id="product-modal" class="product-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeProductModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="product-carousel">
-                    <div class="carousel-container" id="product-carousel">
-                        <!-- Images will be loaded dynamically -->
-                    </div>
-                    <button class="carousel-btn prev" onclick="prevImage()">&#10094;</button>
-                    <button class="carousel-btn next" onclick="nextImage()">&#10095;</button>
-                </div>
-                <div class="product-details">
-                    <h2 id="modal-product-name">Product Name</h2>
-                    <div class="product-price">
-                        <span id="modal-product-price" class="current-price">₹0</span>
-                        <span id="modal-product-mrp" class="original-price">₹0</span>
-                    </div>
-                    <div class="product-info">
-                        <p id="modal-product-description">Product description</p>
-                        <div class="product-specs">
-                            <div class="spec-item">
-                                <strong>Best For:</strong> <span id="modal-best-for">-</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Fabric:</strong> <span id="modal-fabric">-</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Color:</strong> <span id="modal-color">-</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Sizes:</strong> <span id="modal-sizes">-</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Care:</strong> <span id="modal-care">-</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="whatsapp-btn" id="modal-whatsapp-btn">
-                            <i class="fab fa-whatsapp"></i>
-                            Buy via WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Sujata Fashion Academy</h4>
-                    <p>25 years of excellence in fashion education</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#" onclick="showTab('academy')">Academy</a></li>
-                        <li><a href="#" onclick="showTab('shop')">Shop</a></li>
-                        <li><a href="#" onclick="showTab('rent')">Rent</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Sujata Fashion Academy. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- JavaScript Files -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
-
 </body>
 </html>
