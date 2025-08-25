@@ -4,886 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sujata Fashion Academy - Crafting Fashion Dreams for 25 Years</title>
-    <style>
-        /* ADMIN: Main color scheme - change these values to update site colors */
-        :root {
-            --primary-color: #DC143C;
-            --secondary-color: #FF69B4;
-            --accent-color: #FFB6C1;
-            --background: #FFFFFF;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --border-light: #E0E0E0;
-            --success-green: #25D366;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Language Toggle */
-        .language-toggle {
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            z-index: 1000;
-            background: white;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .language-toggle select {
-            border: none;
-            background: transparent;
-            color: var(--primary-color);
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-            margin-bottom: 0;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-weight: bold;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .header-text h1 {
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            font-weight: 700;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* Tab Navigation */
-        .tab-navigation {
-            background: white;
-            padding: 0;
-            margin: 0;
-            border-bottom: 3px solid var(--border-light);
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            padding: 20px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-light);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-            position: relative;
-        }
-
-        .tab-btn:hover {
-            color: var(--primary-color);
-            background-color: #fef7f7;
-        }
-
-        .tab-btn.active {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
-            background-color: #fef7f7;
-        }
-
-        /* Tab Content */
-        .tab-content {
-            display: none;
-            padding: 40px 0;
-            min-height: 600px;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(135deg, #fef7f7 0%, #fff 100%);
-            border-radius: 20px;
-            margin-bottom: 50px;
-        }
-
-        .hero-section h2 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        /* Featured Course Section */
-        .featured-course {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 50px 40px;
-            border-radius: 25px;
-            margin: 50px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .featured-course::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 200px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            transform: translate(50%, -50%);
-        }
-
-        .featured-course-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .featured-badge {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            display: inline-block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .featured-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        .featured-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .featured-highlights {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .featured-highlights h3 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .featured-highlights ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .featured-highlights li {
-            padding: 8px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .featured-highlights li::before {
-            content: '✓';
-            background: rgba(255,255,255,0.3);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .featured-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .featured-stat {
-            text-align: center;
-            background: rgba(255,255,255,0.1);
-            padding: 20px 15px;
-            border-radius: 10px;
-        }
-
-        .featured-stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .featured-stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .featured-cta {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .featured-btn {
-            background: white;
-            color: var(--primary-color);
-            padding: 15px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .featured-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .featured-btn.secondary {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .featured-btn.secondary:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        /* About Section */
-        .about-section {
-            margin: 50px 0;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 30px;
-        }
-
-        .about-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .about-card h3 {
-            color: var(--primary-color);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        /* Courses Section */
-        .courses-section {
-            margin: 50px 0;
-        }
-
-        .course-item {
-            background: white;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .course-item:hover {
-            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.15);
-        }
-
-        .course-header {
-            padding: 20px 25px;
-            background: linear-gradient(135deg, #fef7f7 0%, #fff 100%);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .course-header h3 {
-            color: var(--text-dark);
-            font-size: 1.3rem;
-            font-weight: 600;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .duration {
-            background: var(--primary-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .toggle-icon {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            transition: transform 0.3s ease;
-            width: 30px;
-            text-align: center;
-        }
-
-        .course-content {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .course-content.active {
-            max-height: 500px;
-            padding: 25px;
-        }
-
-        .course-content p {
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        .course-content ul {
-            margin-left: 20px;
-        }
-
-        .course-content li {
-            margin-bottom: 8px;
-            color: var(--text-light);
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            margin: 50px 0;
-        }
-
-        .testimonials-carousel {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scroll-behavior: smooth;
-        }
-
-        .testimonial-video {
-            flex: 0 0 300px;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-video img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .testimonial-info {
-            padding: 15px;
-            text-align: center;
-        }
-
-        .testimonial-info h4 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin: 50px 0;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-
-        .faq-header {
-            padding: 20px 25px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(135deg, #fef7f7 0%, #fff 100%);
-        }
-
-        .faq-header h4 {
-            color: var(--text-dark);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .faq-content {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .faq-content.active {
-            max-height: 200px;
-            padding: 25px;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 50px 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            background: rgba(255,255,255,0.9);
-        }
-
-        .submit-btn {
-            background: var(--success-green);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .submit-btn:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-        }
-
-        .whatsapp-btn {
-            display: inline-block;
-            background: var(--success-green);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            margin: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-        }
-
-        /* Shop Section */
-        .shop-section {
-            padding: 40px 0;
-        }
-
-        .category-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .category-btn {
-            background: white;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .category-btn:hover,
-        .category-btn.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(220, 20, 60, 0.15);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-
-        .product-description {
-            color: var(--text-light);
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .product-categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 15px;
-        }
-
-        .category-tag {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .buy-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .buy-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(220, 20, 60, 0.3);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-text h1 {
-                font-size: 2rem;
-            }
-
-            .hero-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .featured-title {
-                font-size: 2rem;
-            }
-
-            .tab-btn {
-                padding: 15px 25px;
-                font-size: 1rem;
-            }
-
-            .course-header {
-                padding: 15px 20px;
-            }
-
-            .course-header h3 {
-                font-size: 1.1rem;
-                min-width: 150px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 20px;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .featured-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .featured-course {
-                padding: 30px 20px;
-            }
-
-            .featured-stats {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 15px;
-            }
-
-            .featured-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-            }
-
-            .category-filters {
-                gap: 8px;
-            }
-
-            .category-btn {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
-
-            .testimonials-carousel {
-                gap: 15px;
-            }
-
-            .testimonial-video {
-                flex: 0 0 250px;
-            }
-
-            .contact-section {
-                padding: 30px 20px;
-            }
-
-            .language-toggle {
-                right: 10px;
-                top: 5px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-section {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .header-text h1 {
-                font-size: 1.5rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .hero-section h2 {
-                font-size: 1.5rem;
-            }
-
-            .featured-title {
-                font-size: 1.5rem;
-            }
-
-            .hero-section {
-                padding: 40px 0;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .course-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .toggle-icon {
-                align-self: flex-end;
-                margin-top: -30px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <meta name="description" content="Premier fashion academy offering professional courses in fashion design, blouse making, dress designing, and Aari work embroidery. 25 years of excellence in fashion education.">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
-    <!-- ADMIN: Language Toggle -->
+    <!-- Language Toggle -->
     <div class="language-toggle">
         <select id="languageSelect">
             <option value="en">English</option>
@@ -893,857 +25,569 @@
     </div>
 
     <div class="container">
-        <!-- ADMIN: Header Section - Update logo and academy name here -->
-        <header class="header">
+        <!-- Header Section -->
+        <header class="header" data-aos="fade-down">
             <div class="logo-section">
-                <div class="logo-placeholder">SFA</div>
+                <img src="assets/images/logo/logo.png" alt="Sujata Fashion Logo" class="logo-image" id="mainLogo">
                 <div class="header-text">
-                    <h1 data-translate="academy_name">Sujata Fashion Academy</h1>
-                    <p class="tagline" data-translate="tagline">Crafting Fashion Dreams for 25 Years</p>
+                    <h1>Sujata Fashion Academy</h1>
+                    <p class="tagline">Crafting Fashion Dreams for 25 Years</p>
                 </div>
             </div>
         </header>
 
-<<<<<<< HEAD
-        <!-- Tab Navigation -->
-        <nav class="tab-navigation">
-            <button class="tab-btn active" data-tab="academy" data-translate="academy_tab">Academy</button>
-            <button class="tab-btn" data-tab="shop" data-translate="shop_tab">Shop</button>
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation" data-aos="fade-up" data-aos-delay="200">
+            <button class="tab-btn active" data-tab="academy" id="academyTab">
+                <span class="tab-icon">🎓</span>
+                <span>Academy</span>
+            </button>
+            <button class="tab-btn" data-tab="shop" id="shopTab">
+                <span class="tab-icon">🛍️</span>
+                <span>Shop</span>
+            </button>
+            <button class="tab-btn" data-tab="rent" id="rentTab">
+                <span class="tab-icon">💎</span>
+                <span>Rent</span>
+            </button>
         </nav>
 
-        <!-- Academy Section -->
+        <!-- Academy Tab Content -->
         <section id="academy" class="tab-content active">
-            
-            <!-- ADMIN: Hero Section with Statistics -->
-            <div class="hero-section">
-                <h2 data-translate="welcome_msg">Welcome to Excellence in Fashion Education</h2>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">25</div>
-                        <div class="stat-label" data-translate="years_experience">Years Experience</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">20</div>
-                        <div class="stat-label" data-translate="successful_batches">Successful Batches</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label" data-translate="alumni">Alumni</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">6</div>
-                        <div class="stat-label" data-translate="courses">Specialized Courses</div>
+            <!-- Hero Stats Section -->
+            <div class="hero-section" data-aos="fade-up">
+                <div class="hero-content">
+                    <h2>Welcome to Excellence in Fashion Education</h2>
+                    <p class="hero-subtitle">Where creativity meets craftsmanship in the art of fashion design</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Successful Batches</div>
+                        </div>
+                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Alumni</div>
+                        </div>
+                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Courses</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ADMIN: Featured Course Section - Fashion Design Diploma Highlight -->
-            <div class="featured-course">
+            <!-- Featured Course Section -->
+            <div class="featured-course" data-aos="fade-up">
                 <div class="featured-course-content">
                     <div class="featured-badge">🎓 FLAGSHIP PROGRAM</div>
-                    <h2 class="featured-title" data-translate="featured_title">1 Year Fashion Designing Diploma Course</h2>
-                    <p class="featured-subtitle" data-translate="featured_subtitle">Master the Complete Art of Fashion Design with India's Most Comprehensive Program</p>
+                    <h2 class="featured-title">1 Year Fashion Designing Diploma Course</h2>
+                    <p class="featured-subtitle">Master the Complete Art of Fashion Design with India's Most Comprehensive Program</p>
                     
                     <div class="featured-stats">
-                        <div class="featured-stat">
+                        <div class="featured-stat" data-aos="zoom-in" data-aos-delay="100">
                             <div class="featured-stat-number">365</div>
                             <div class="featured-stat-label">Days Training</div>
                         </div>
-                        <div class="featured-stat">
+                        <div class="featured-stat" data-aos="zoom-in" data-aos-delay="200">
                             <div class="featured-stat-number">15+</div>
                             <div class="featured-stat-label">Skill Modules</div>
                         </div>
-                        <div class="featured-stat">
+                        <div class="featured-stat" data-aos="zoom-in" data-aos-delay="300">
                             <div class="featured-stat-number">50+</div>
                             <div class="featured-stat-label">Garment Types</div>
                         </div>
-                        <div class="featured-stat">
+                        <div class="featured-stat" data-aos="zoom-in" data-aos-delay="400">
                             <div class="featured-stat-number">100%</div>
                             <div class="featured-stat-label">Hands-on Practice</div>
                         </div>
                     </div>
 
                     <div class="featured-grid">
-                        <div class="featured-highlights">
+                        <div class="featured-highlights" data-aos="slide-right">
                             <h3>🎯 What You'll Master</h3>
                             <ul>
-                                <li>Complete Fashion Design Fundamentals</li>
-                                <li>Pattern Making & Garment Construction</li>
-                                <li>Professional Sewing Techniques</li>
-                                <li>Fashion Illustration & Sketching</li>
-                                <li>Color Theory & Fabric Selection</li>
-                                <li>Traditional & Modern Design Methods</li>
-                                <li>Business Setup & Entrepreneurship</li>
-                                <li>Portfolio Development</li>
+                                <li>Pattern Making & Grading</li>
+                                <li>Garment Construction</li>
+                                <li>Design Sketching</li>
+                                <li>Fabric Selection</li>
+                                <li>Fashion Illustration</li>
                             </ul>
                         </div>
-                        <div class="featured-highlights">
+                        <div class="featured-highlights" data-aos="slide-left">
                             <h3>🏆 Program Highlights</h3>
                             <ul>
-                                <li>Industry-Recognized Certificate</li>
-                                <li>Small Batch Size (8-12 Students)</li>
-                                <li>25 Years Experienced Faculty</li>
-                                <li>Complete Material Kit Included</li>
-                                <li>Lifetime Alumni Network Access</li>
-                                <li>Business Guidance & Mentorship</li>
-                                <li>Flexible Payment Options</li>
-                                <li>Job Placement Assistance</li>
+                                <li>Industry-recognized Certificate</li>
+                                <li>Placement Assistance</li>
+                                <li>Business Setup Guidance</li>
+                                <li>Alumni Network Access</li>
+                                <li>Lifetime Course Updates</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="featured-cta">
-                        <a href="https://wa.me/919763416561?text=Hi%2C%20I%27m%20interested%20in%20the%201%20Year%20Fashion%20Designing%20Diploma%20Course.%20Please%20share%20more%20details." class="featured-btn" target="_blank">
+                        <a href="javascript:void(0)" onclick="openEnrollmentModal()" class="featured-btn">
                             📞 Enroll Now
                         </a>
-                        <a href="#" onclick="toggleCourse('course1')" class="featured-btn secondary">
+                        <a href="javascript:void(0)" onclick="scrollToContact()" class="featured-btn secondary">
                             📋 View Full Curriculum
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- ADMIN: About Section -->
-            <div class="about-section">
-                <h2 class="section-title" data-translate="about_title">About Our Academy</h2>
+            <!-- About Section -->
+            <div class="about-section" data-aos="fade-up">
+                <h2 class="section-title">About Our Academy</h2>
                 <div class="about-grid">
-                    <div class="about-card">
+                    <div class="about-card" data-aos="fade-right">
+                        <div class="card-icon">📖</div>
                         <h3>Our Story</h3>
-                        <p data-translate="about_text">With 25 years of excellence in fashion education, Sujata Fashion Academy has been nurturing creative talents and shaping successful fashion careers. Our comprehensive courses combine traditional techniques with modern design principles.</p>
+                        <p>With 25 years of excellence in fashion education, Sujata Fashion Academy has been nurturing creative talents and shaping successful fashion careers. Our comprehensive courses combine traditional techniques with modern design principles.</p>
                     </div>
-                    <div class="about-card">
-                        <h3 data-translate="mission_title">Our Mission</h3>
-                        <p data-translate="mission_text">To provide world-class fashion education that empowers students with practical skills and creative vision needed to excel in the fashion industry.</p>
+                    <div class="about-card" data-aos="fade-left">
+                        <div class="card-icon">🎯</div>
+                        <h3>Our Mission</h3>
+                        <p>To provide world-class fashion education that empowers students with practical skills and creative vision needed to excel in the fashion industry.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- ADMIN: Interactive Courses Section -->
-            <div class="courses-section">
-                <h2 class="section-title" data-translate="courses_title">Our Complete Course Portfolio</h2>
+            <!-- Courses Section -->
+            <div class="courses-section" data-aos="fade-up">
+                <h2 class="section-title">Our Complete Course Portfolio</h2>
                 <p class="section-subtitle">Explore all our specialized courses - Click on any course to view detailed curriculum</p>
                 
-                <!-- Course 1 - Featured Course (Full Details) -->
-                <div class="course-item">
-                    <div class="course-header" onclick="toggleCourse('course1')">
-                        <h3>1 Year Fashion Designing Diploma Course</h3>
-                        <span class="duration">1 Year</span>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="course-content" id="course1">
-                        <p><strong>Our flagship comprehensive program covering all aspects of fashion design, pattern making, and garment construction.</strong></p>
-                        <h4>📚 Complete Course Curriculum:</h4>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
-                            <div>
-                                <h5>🧵 Basic Fundamentals</h5>
-                                <ul>
-                                    <li>Seam - Types Of Seam (Plane, Press, French, Flat, Run Flat, Over Cast, Zig-Zag, Facing, Piping)</li>
-                                    <li>Pleats - Types Of Pleats (Simple, One Way, Knife, Box, Inverted Box, Firm Pleats)</li>
-                                    <li>Dart (West, Side Dart, Arm Hole Dart, Fish Dart, West Dart Skirt)</li>
-                                    <li>Tucks (Vertical, Horizontal, Cross, Square, Diamond, Circular, Space, Dollar)</li>
-                                </ul>
+                <div class="courses-container">
+                    <!-- 1 Year Fashion Design Course -->
+                    <div class="course-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="course-header">
+                            <h3>1 Year Fashion Designing Diploma Course</h3>
+                        </div>
+                        <div class="course-content">
+                            <p><strong>Duration:</strong> 1 Year</p>
+                            <p>Our flagship comprehensive program covering all aspects of fashion design, pattern making, and garment construction.</p>
+                            <div class="course-features">
+                                <span class="feature-badge">🎓 Certificate</span>
+                                <span class="feature-badge">💼 Career Support</span>
                             </div>
-                            <div>
-                                <h5>👗 Advanced Techniques</h5>
-                                <ul>
-                                    <li>Yoke (Straight, Round, Cross, Pentagon)</li>
-                                    <li>Shiring Gathers, Plaket, Pocket, Piping</li>
-                                    <li>Design Elements (Triangle, Pentagon, Hexagon, Half Circle, Butterfly)</li>
-                                    <li>Neckline (Facing, Piping, Design)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5>👶 Specialized Projects</h5>
-                                <ul>
-                                    <li>Baby Kit (Mattress, Pillow, Load, Naadi, Zabla, Cap, Napkin, Bib, Shoes, Pant)</li>
-                                    <li>Types Of Frock (Baby Frock, Simple Frock, Umbrella Frock)</li>
-                                    <li>Skirt & Blouse Design</li>
-                                    <li>Midi Skirt Construction</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5>🎨 Design & Illustration</h5>
-                                <ul>
-                                    <li>Lines, Shapes & Mechanical Croqui</li>
-                                    <li>Figure Drawing (10 Head & 12 Head)</li>
-                                    <li>Pencil Shading & Color Techniques</li>
-                                    <li>Fashion Sketching & Portfolio Development</li>
-                                </ul>
+                            <div class="course-actions">
+                                <button class="course-btn" onclick="toggleCourse('course1')">View Curriculum</button>
+                                <a href="https://wa.me/919763416561?text=Hi! I am interested in the 1 Year Fashion Designing Diploma Course. Please share details about enrolment." target="_blank" class="course-btn">
+                                    Enrol Now
+                                </a>
                             </div>
                         </div>
-                        <p><strong>🎓 Certificate:</strong> Industry-recognized diploma certificate upon successful completion</p>
-                        <p><strong>💼 Career Support:</strong> Business setup guidance and alumni network access</p>
-                    </div>
-                </div>
-
-                <!-- Course 2 -->
-                <div class="course-item">
-                    <div class="course-header" onclick="toggleCourse('course2')">
-                        <h3>3 Months Blouse Designing Course</h3>
-                        <span class="duration">3 Months</span>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="course-content" id="course2">
-                        <p>Specialized course focusing on traditional and modern blouse design patterns for various occasions.</p>
-                        <h4>Course Curriculum:</h4>
-                        <ul>
-                            <li>4 Dart Blouse</li>
-                            <li>Full Katori Blouse</li>
-                            <li>Princess Dart Blouse</li>
-                            <li>High Neck Collar Blouse with Katori</li>
-                            <li>Stand Collar Blouse with Katori</li>
-                            <li>Sabhyasachi Blouse</li>
-                            <li>Single Dart Blouse</li>
-                            <li>4 Dart Blouse With Yoke Strip</li>
-                            <li>Two Piece Katori Blouse</li>
-                            <li>Princess Dart Blouse With Yoke Strip</li>
-                            <li>Princess Dart Blouse Padded</li>
-                            <li>Madras Katori Blouse</li>
-                            <li>Halterneck Blouse Princess Cut</li>
-                            <li>Raglan Blouse</li>
-                            <li>Blouse With Only Strips</li>
-                            <li>Whole Mega Sleeves Blouse</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Course 3 -->
-                <div class="course-item">
-                    <div class="course-header" onclick="toggleCourse('course3')">
-                        <h3>3 Months Dress Designing Course</h3>
-                        <span class="duration">3 Months</span>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="course-content" id="course3">
-                        <p>Contemporary dress design techniques and trending styles for modern fashion needs.</p>
-                        <h4>Course Curriculum:</h4>
-                        <ul>
-                            <li>A Line Punjabi Dress</li>
-                            <li>Churidar Dress With Baggy (Khol)</li>
-                            <li>Side Cut Punjabi Dress</li>
-                            <li>Simple Salwar</li>
-                            <li>Short Top</li>
-                            <li>Simple Salwar With Waist Belt</li>
-                            <li>Stand Collar Dress</li>
-                            <li>Churidar With Waist Belt</li>
-                            <li>High Neck Top</li>
-                            <li>Churidar Without Waist Belt</li>
-                            <li>Punjabi Dress With Six Pieces</li>
-                            <li>Punjabi Dress With 10 Pieces</li>
-                            <li>Heena Dress</li>
-                            <li>Full Umbrella Dress</li>
-                            <li>Princess Cut Dress</li>
-                            <li>Overlap Dress</li>
-                            <li>Shall Collar Dress</li>
-                            <li>Full Patiala Salwar</li>
-                            <li>Plazo Pant</li>
-                            <li>Dhoti Patiala</li>
-                            <li>Khajuri Patiala</li>
-                            <li>Boat Neck Dress</li>
-                            <li>Tulip Pant</li>
-                            <li>Tulip Salwar</li>
-                            <li>Afghani Salwar</li>
-                            <li>Anarkali (Yoke & Without Yoke)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Course 4 -->
-                <div class="course-item">
-                    <div class="course-header" onclick="toggleCourse('course4')">
-                        <h3>Basic Aari Work Course (Offline)</h3>
-                        <span class="duration">45 Days</span>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="course-content" id="course4">
-                        <p>Learn the intricate art of Aari embroidery with traditional techniques and modern applications. Hands-on practice with expert guidance.</p>
-                        <h4>What You'll Learn:</h4>
-                        <ul>
-                            <li>Basic Aari embroidery techniques</li>
-                            <li>Traditional patterns and motifs</li>
-                            <li>Thread and fabric selection</li>
-                            <li>Tool handling and maintenance</li>
-                            <li>Project completion and finishing</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Course 5 -->
-                <div class="course-item">
-                    <div class="course-header" onclick="toggleCourse('course5')">
-                        <h3>Advanced Aari Work Course</h3>
-                        <span class="duration">3 Months</span>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="course-content" id="course5">
-                        <p>Master advanced Aari embroidery patterns and commercial applications for professional level work.</p>
-                        <h4>Advanced Techniques:</h4>
-                        <ul>
-                            <li>Complex pattern creation</li>
-                            <li>Commercial embroidery methods</li>
-                            <li>Mixed media applications</li>
-                            <li>Quality control and finishing</li>
-                            <li>Business applications and pricing</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Course 6 -->
-                <div class="course-item">
-                    <div class="course-header" onclick="toggleCourse('course6')">
-                        <h3>Basic Aari Work Course (Online)</h3>
-                        <span class="duration">8 Weekends</span>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="course-content" id="course6">
-                        <p>Online Aari embroidery course with live demonstrations and practice sessions. Perfect for remote learning.</p>
-                        <h4>Online Learning Features:</h4>
-                        <ul>
-                            <li>Live weekend sessions</li>
-                            <li>Recorded lessons for practice</li>
-                            <li>Material kit delivered to home</li>
-                            <li>One-on-one guidance sessions</li>
-                            <li>Digital certificates upon completion</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ADMIN: Gallery/Testimonials Section -->
-            <div class="gallery-section">
-                <h2 class="section-title" data-translate="testimonials_title">Student Success Stories</h2>
-                <div class="testimonials-carousel">
-                    <!-- ADMIN: Replace these with your YouTube video embeds or student photos -->
-                    <div class="testimonial-video">
-                        <img src="https://via.placeholder.com/300x200/DC143C/FFFFFF?text=Student+Success+1" alt="Student Success Story 1">
-                        <div class="testimonial-info">
-                            <h4>Priya Sharma</h4>
-                            <p>Fashion Designer</p>
+                        <div class="course-curriculum" id="course1" style="display: none;">
+                            <h4>Course Modules:</h4>
+                            <ul>
+                                <li>Fashion Design Fundamentals</li>
+                                <li>Pattern Making & Grading</li>
+                                <li>Garment Construction Techniques</li>
+                                <li>Fashion Illustration & Sketching</li>
+                                <li>Fabric Knowledge & Selection</li>
+                                <li>Draping Techniques</li>
+                                <li>Fashion Business & Entrepreneurship</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="testimonial-video">
-                        <img src="https://via.placeholder.com/300x200/FF69B4/FFFFFF?text=Student+Success+2" alt="Student Success Story 2">
-                        <div class="testimonial-info">
-                            <h4>Anita Patel</h4>
-                            <p>Boutique Owner</p>
+
+                    <!-- Blouse Design Course -->
+                    <div class="course-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="course-header">
+                            <h3>3 Months Blouse Designing Course</h3>
+                        </div>
+                        <div class="course-content">
+                            <p><strong>Duration:</strong> 3 Months</p>
+                            <p>Specialized course focusing on traditional and modern blouse design patterns for various occasions.</p>
+                            <div class="course-actions">
+                                <button class="course-btn" onclick="toggleCourse('course2')">View Curriculum</button>
+                                <a href="https://wa.me/919763416561?text=Hi! I am interested in the 3 Months Blouse Designing Course. Please share details about enrolment." target="_blank" class="course-btn">
+                                    Enrol Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class="course-curriculum" id="course2" style="display: none;">
+                            <h4>Course Modules:</h4>
+                            <ul>
+                                <li>Basic Blouse Construction</li>
+                                <li>Pattern Variations</li>
+                                <li>Sleeve Designs</li>
+                                <li>Neckline Variations</li>
+                                <li>Fitting Techniques</li>
+                                <li>Embellishment Methods</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="testimonial-video">
-                        <img src="https://via.placeholder.com/300x200/FFB6C1/FFFFFF?text=Student+Success+3" alt="Student Success Story 3">
-                        <div class="testimonial-info">
-                            <h4>Meera Joshi</h4>
-                            <p>Aari Work Specialist</p>
+
+                    <!-- Dress Design Course -->
+                    <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="course-header">
+                            <h3>3 Months Dress Designing Course</h3>
+                        </div>
+                        <div class="course-content">
+                            <p><strong>Duration:</strong> 3 Months</p>
+                            <p>Contemporary dress design techniques and trending styles for modern fashion needs.</p>
+                            <div class="course-actions">
+                                <button class="course-btn" onclick="toggleCourse('course3')">View Curriculum</button>
+                                <a href="https://wa.me/919763416561?text=Hi! I am interested in the 3 Months Dress Designing Course. Please share details about enrolment." target="_blank" class="course-btn">
+                                    Enrol Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class="course-curriculum" id="course3" style="display: none;">
+                            <h4>Course Modules:</h4>
+                            <ul>
+                                <li>Western Dress Patterns</li>
+                                <li>Indo-Western Fusion</li>
+                                <li>Party Wear Designs</li>
+                                <li>Casual Dress Styles</li>
+                                <li>Size Grading</li>
+                                <li>Market Research</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="testimonial-video">
-                        <img src="https://via.placeholder.com/300x200/DC143C/FFFFFF?text=Student+Success+4" alt="Student Success Story 4">
-                        <div class="testimonial-info">
-                            <h4>Kavita Singh</h4>
-                            <p>Fashion Entrepreneur</p>
+
+                    <!-- Basic Aari Work Course (Offline) -->
+                    <div class="course-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="course-header">
+                            <h3>Basic Aari Work Course (Offline)</h3>
+                        </div>
+                        <div class="course-content">
+                            <p><strong>Duration:</strong> 45 Days</p>
+                            <p>Learn the intricate art of Aari embroidery with traditional techniques and modern applications.</p>
+                            <div class="course-actions">
+                                <button class="course-btn" onclick="toggleCourse('course4')">View Curriculum</button>
+                                <a href="https://wa.me/919763416561?text=Hi! I am interested in the Basic Aari Work Course (Offline). Please share details about enrolment." target="_blank" class="course-btn">
+                                    Enrol Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class="course-curriculum" id="course4" style="display: none;">
+                            <h4>Course Modules:</h4>
+                            <ul>
+                                <li>Aari Hook Handling</li>
+                                <li>Basic Stitching Techniques</li>
+                                <li>Thread Selection</li>
+                                <li>Pattern Transfer</li>
+                                <li>Simple Motif Designs</li>
+                                <li>Finishing Techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Aari Work Course -->
+                    <div class="course-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="course-header">
+                            <h3>Advanced Aari Work Course</h3>
+                        </div>
+                        <div class="course-content">
+                            <p><strong>Duration:</strong> 3 Months</p>
+                            <p>Master advanced Aari embroidery patterns and commercial applications for professional level work.</p>
+                            <div class="course-actions">
+                                <button class="course-btn" onclick="toggleCourse('course5')">View Curriculum</button>
+                                <a href="https://wa.me/919763416561?text=Hi! I am interested in the Advanced Aari Work Course. Please share details about enrolment." target="_blank" class="course-btn">
+                                    Enrol Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class="course-curriculum" id="course5" style="display: none;">
+                            <h4>Course Modules:</h4>
+                            <ul>
+                                <li>Complex Pattern Development</li>
+                                <li>Commercial Applications</li>
+                                <li>Beadwork Integration</li>
+                                <li>Zardozi Techniques</li>
+                                <li>Business Applications</li>
+                                <li>Quality Control</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Online Aari Work Course -->
+                    <div class="course-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="course-header">
+                            <h3>Basic Aari Work Course (Online)</h3>
+                        </div>
+                        <div class="course-content">
+                            <p><strong>Duration:</strong> 8 Weekends</p>
+                            <p>Online Aari embroidery course with live demonstrations and practice sessions. Perfect for remote learning.</p>
+                            <div class="course-actions">
+                                <button class="course-btn" onclick="toggleCourse('course6')">View Curriculum</button>
+                                <a href="https://wa.me/919763416561?text=Hi! I am interested in the Basic Aari Work Course (Online). Please share details about enrolment." target="_blank" class="course-btn">
+                                    Enrol Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class="course-curriculum" id="course6" style="display: none;">
+                            <h4>Course Modules:</h4>
+                            <ul>
+                                <li>Online Tool Setup</li>
+                                <li>Live Demonstration Sessions</li>
+                                <li>Practice Assignments</li>
+                                <li>Peer Review Sessions</li>
+                                <li>Digital Portfolio Creation</li>
+                                <li>Online Assessment</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ADMIN: FAQ Section -->
-            <div class="faq-section">
-                <h2 class="section-title" data-translate="faq_title">Frequently Asked Questions</h2>
+            <!-- Testimonials with Video Support -->
+            <div class="testimonials-section" data-aos="fade-up">
+                <h2 class="section-title">Student Success Stories</h2>
+                <div class="testimonials-carousel" id="testimonialsContainer">
+                    <!-- Testimonials will be loaded dynamically with video support -->
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section" data-aos="fade-up">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="faq-question" onclick="toggleFAQ(1)">
+                            <h3>What career opportunities are available after completing the courses?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" id="faq1">
+                            <p>Our graduates pursue various career paths including:</p>
+                            <ul>
+                                <li><strong>Fashion Designer:</strong> Create original clothing designs</li>
+                                <li><strong>Boutique Owner:</strong> Start your own fashion business</li>
+                                <li><strong>Aari Work Specialist:</strong> Specialize in traditional embroidery</li>
+                                <li><strong>Fashion Entrepreneur:</strong> Launch your own fashion brand</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="faq-question" onclick="toggleFAQ(2)">
+                            <h3>What are the prerequisites for enrolling in the courses?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" id="faq2">
+                            <p>No prior experience required. Basic education (10th pass) is preferred. Passion for fashion and creativity is most important.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="faq-question" onclick="toggleFAQ(3)">
+                            <h3>Do you provide certificates upon course completion?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" id="faq3">
+                            <p>Yes, we provide completion certificates for all our courses. Our diploma course certificate is recognized in the fashion industry.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="faq-question" onclick="toggleFAQ(4)">
+                            <h3>What is the class size and learning environment?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" id="faq4">
+                            <p>We maintain small batch sizes (8-12 students) to ensure personalized attention and hands-on learning experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="faq-question" onclick="toggleFAQ(5)">
+                            <h3>Do you provide business setup guidance after course completion?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" id="faq5">
+                            <p>We provide guidance for setting up your own business and connect you with our network of alumni and industry contacts.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="faq-question" onclick="toggleFAQ(6)">
+                            <h3>Can I take multiple courses together?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" id="faq6">
+                            <p>Yes, you can combine courses. We offer flexible scheduling and discounts for multiple course enrollments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section" data-aos="fade-up">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your fashion journey? Fill out the form below or contact us directly.</p>
                 
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq('faq1')">
-                        <h4 data-translate="faq_1_q">What are the admission requirements?</h4>
-                        <span class="toggle-icon">+</span>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
                     </div>
-                    <div class="faq-content" id="faq1">
-                        <p data-translate="faq_1_a">No prior experience required. Basic education (10th pass) is preferred. Passion for fashion and creativity is most important.</p>
+                    <div class="form-row">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <select name="course" id="courseSelect">
+                            <option value="">Course of Interest</option>
+                            <option value="1-year-fashion-design">1 Year Fashion Design Diploma</option>
+                            <option value="blouse-design">3 Months Blouse Design</option>
+                            <option value="dress-design">3 Months Dress Design</option>
+                            <option value="basic-aari-offline">Basic Aari Work (Offline)</option>
+                            <option value="advanced-aari">Advanced Aari Work</option>
+                            <option value="basic-aari-online">Basic Aari Work (Online)</option>
+                        </select>
                     </div>
-                </div>
+                    <textarea name="message" placeholder="Your Message" rows="4"></textarea>
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                </form>
 
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq('faq2')">
-                        <h4 data-translate="faq_2_q">Do you provide certificates?</h4>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-content" id="faq2">
-                        <p data-translate="faq_2_a">Yes, we provide completion certificates for all our courses. Our diploma course certificate is recognized in the fashion industry.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq('faq3')">
-                        <h4 data-translate="faq_3_q">What is the batch size?</h4>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-content" id="faq3">
-                        <p data-translate="faq_3_a">We maintain small batch sizes (8-12 students) to ensure personalized attention and hands-on learning experience.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq('faq4')">
-                        <h4 data-translate="faq_4_q">Are there any job placement assistance?</h4>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-content" id="faq4">
-                        <p data-translate="faq_4_a">We provide guidance for setting up your own business and connect you with our network of alumni and industry contacts.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-header" onclick="toggleFaq('faq5')">
-                        <h4 data-translate="faq_5_q">Can I take multiple courses together?</h4>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-content" id="faq5">
-                        <p data-translate="faq_5_a">Yes, you can combine courses. We offer flexible scheduling and discounts for multiple course enrollments.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ADMIN: Contact Section -->
-            <div class="contact-section">
-                <h2 data-translate="contact_title">Get In Touch</h2>
-                <p data-translate="contact_subtitle">Ready to start your fashion journey? Fill out the form below or contact us directly.</p>
-                
-                <div class="contact-form">
-                    <!-- ADMIN: This form submits to WhatsApp - update phone number as needed -->
-                    <form id="admissionForm" onsubmit="submitForm(event)">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="course">Course of Interest</label>
-                            <select id="course" name="course">
-                                <option value="">Select a Course</option>
-                                <option value="1-year-diploma">1 Year Fashion Designing Diploma</option>
-                                <option value="blouse-design">3 Months Blouse Designing</option>
-                                <option value="dress-design">3 Months Dress Designing</option>
-                                <option value="aari-basic-offline">Basic Aari Work (Offline)</option>
-                                <option value="aari-advanced">Advanced Aari Work</option>
-                                <option value="aari-basic-online">Basic Aari Work (Online)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your fashion goals and any questions you have..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Submit Inquiry</button>
-                    </form>
-                </div>
-
-                <div style="margin-top: 30px;">
-                    <a href="https://wa.me/919763416561?text=Hi%2C%20I%27m%20interested%20in%20learning%20more%20about%20Sujata%20Fashion%20Academy%20courses." class="whatsapp-btn" target="_blank">
+                <div class="contact-alternative">
+                    <a href="https://wa.me/919763416561?text=Hi! I visited your website and would like to know more about your fashion courses." class="whatsapp-btn" target="_blank">
                         💬 WhatsApp Us Directly
                     </a>
                 </div>
             </div>
-
         </section>
 
-        <!-- Shop Section -->
+        <!-- Shop Tab Content -->
         <section id="shop" class="tab-content">
             <div class="shop-section">
-                <h2 class="section-title" data-translate="shop_title">Fashion Academy Shop</h2>
-                <p class="section-subtitle" data-translate="shop_subtitle">Eco-friendly fashion pieces crafted by our students and instructors</p>
-
-                <!-- ADMIN: Category Filters -->
-                <div class="category-filters">
-                    <button class="category-btn active" data-category="all">All Products</button>
-                    <button class="category-btn" data-category="Sarees">Sarees</button>
-                    <button class="category-btn" data-category="Dresses">Dresses</button>
-                    <button class="category-btn" data-category="Blouses">Blouses</button>
-                    <button class="category-btn" data-category="Casual">Casual</button>
-                    <button class="category-btn" data-category="Formal">Formal</button>
-                    <button class="category-btn" data-category="Traditional">Traditional</button>
-                    <button class="category-btn" data-category="Baby">Baby</button>
+                <div class="shop-header" data-aos="fade-up">
+                    <h2 class="section-title">Fashion Collections</h2>
+                    <p class="section-subtitle">Eco-friendly fashion pieces crafted by our students and instructors</p>
                 </div>
 
-                <!-- ADMIN: Products Grid -->
+                <!-- Category Filters -->
+                <div class="category-filters" data-aos="fade-up" data-aos-delay="100">
+                    <button class="filter-btn active" data-category="all">All Products</button>
+                    <button class="filter-btn" data-category="C1">Sarees</button>
+                    <button class="filter-btn" data-category="C2">Kurtas & Suits</button>
+                    <button class="filter-btn" data-category="C3">Blouses</button>
+                    <button class="filter-btn" data-category="C4">Dresses</button>
+                    <button class="filter-btn" data-category="C5">Baby Wear</button>
+                    <button class="filter-btn" data-category="C6">Casual Wear</button>
+                </div>
+
+                <!-- Products Grid -->
                 <div class="products-grid" id="productsGrid">
-                    
-                    <!-- Product 1 - ADMIN: Copy this template to add new products -->
-                    <div class="product-card" data-categories="Sarees Traditional Formal">
-                        <img src="https://via.placeholder.com/300x220/DC143C/FFFFFF?text=Designer+Silk+Saree" alt="Designer Silk Saree" class="product-image">
-                        <div class="product-info">
-                            <h3 class="product-name">Designer Silk Saree</h3>
-                            <div class="product-categories">
-                                <span class="category-tag">Sarees</span>
-                                <span class="category-tag">Traditional</span>
-                                <span class="category-tag">Formal</span>
-                            </div>
-                            <p class="product-description">Handcrafted silk saree with intricate embroidery work, perfect for special occasions and traditional events.</p>
-                            <a href="https://wa.me/919763416561?text=Hi%2C%20I%27m%20interested%20in%20the%20Designer%20Silk%20Saree.%20Product%20image%3A%20https%3A//via.placeholder.com/300x220/DC143C/FFFFFF%3Ftext%3DDesigner%2BSilk%2BSaree" class="buy-btn" target="_blank">
-                                Buy via WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div class="product-card" data-categories="Dresses Casual Traditional">
-                        <img src="https://via.placeholder.com/300x220/FF69B4/FFFFFF?text=Cotton+Kurta+Set" alt="Cotton Kurta Set" class="product-image">
-                        <div class="product-info">
-                            <h3 class="product-name">Cotton Kurta Set</h3>
-                            <div class="product-categories">
-                                <span class="category-tag">Dresses</span>
-                                <span class="category-tag">Casual</span>
-                                <span class="category-tag">Traditional</span>
-                            </div>
-                            <p class="product-description">Comfortable cotton kurta with matching palazzo pants, ideal for daily wear and casual outings.</p>
-                            <a href="https://wa.me/919763416561?text=Hi%2C%20I%27m%20interested%20in%20the%20Cotton%20Kurta%20Set.%20Product%20image%3A%20https%3A//via.placeholder.com/300x220/FF69B4/FFFFFF%3Ftext%3DCotton%2BKurta%2BSet" class="buy-btn" target="_blank">
-                                Buy via WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="product-card" data-categories="Blouses Traditional Formal">
-                        <img src="https://via.placeholder.com/300x220/FFB6C1/FFFFFF?text=Embroidered+Blouse" alt="Embroidered Blouse" class="product-image">
-                        <div class="product-info">
-                            <h3 class="product-name">Embroidered Blouse</h3>
-                            <div class="product-categories">
-                                <span class="category-tag">Blouses</span>
-                                <span class="category-tag">Traditional</span>
-                                <span class="category-tag">Formal</span>
-                            </div>
-                            <p class="product-description">Beautifully embroidered blouse with Aari work, perfect for pairing with sarees and lehengas.</p>
-                            <a href="https://wa.me/919763416561?text=Hi%2C%20I%27m%20interested%20in%20the%20Embroidered%20Blouse.%20Product%20image%3A%20https%3A//via.placeholder.com/300x220/FFB6C1/FFFFFF%3Ftext%3DEmbroidered%2BBlouse" class="buy-btn" target="_blank">
-                                Buy via WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="product-card" data-categories="Baby Casual">
-                        <img src="https://via.placeholder.com/300x220/DC143C/FFFFFF?text=Baby+Frock" alt="Baby Frock" class="product-image">
-                        <div class="product-info">
-                            <h3 class="product-name">Baby Frock</h3>
-                            <div class="product-categories">
-                                <span class="category-tag">Baby</span>
-                                <span class="category-tag">Casual</span>
-                            </div>
-                            <p class="product-description">Adorable baby frock made with soft cotton fabric, safe and comfortable for your little one.</p>
-                            <a href="https://wa.me/919763416561?text=Hi%2C%20I%27m%20interested%20in%20the%20Baby%20Frock.%20Product%20image%3A%20https%3A//via.placeholder.com/300x220/DC143C/FFFFFF%3Ftext%3DBaby%2BFrock" class="buy-btn" target="_blank">
-                                Buy via WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product 5 -->
-                    <div class="product-card" data-categories="Dresses Formal">
-                        <img src="https://via.placeholder.com/300x220/FF69B4/FFFFFF?text=Evening+Gown" alt="Evening Gown" class="product-image">
-                        <div class="product-info">
-                            <h3 class="product-name">Evening Gown</h3>
-                            <div class="product-categories">
-                                <span class="category-tag">Dresses</span>
-                                <span class="category-tag">Formal</span>
-                            </div>
-                            <p class="product-description">Elegant evening gown with modern design elements, perfect for special occasions and formal events.</p>
-                            <a href="https://wa.me/919763416561?text=Hi%2C%20I%27m%20interested%20in%20the%20Evening%20Gown.%20Product%20image%3A%20https%3A//via.placeholder.com/300x220/FF69B4/FFFFFF%3Ftext%3DEvening%2BGown" class="buy-btn" target="_blank">
-                                Buy via WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product 6 -->
-                    <div class="product-card" data-categories="Casual Traditional">
-                        <img src="https://via.placeholder.com/300x220/FFB6C1/FFFFFF?text=Casual+Top" alt="Casual Top" class="product-image">
-                        <div class="product-info">
-                            <h3 class="product-name">Casual Top</h3>
-                            <div class="product-categories">
-                                <span class="category-tag">Casual</span>
-                                <span class="category-tag">Traditional</span>
-                            </div>
-                            <p class="product-description">Comfortable casual top with traditional prints, great for everyday wear and relaxed settings.</p>
-                            <a href="https://wa.me/919763416561?text=Hi%2C%20I%27m%20interested%20in%20the%20Casual%20Top.%20Product%20image%3A%20https%3A//via.placeholder.com/300x220/FFB6C1/FFFFFF%3Ftext%3DCasual%2BTop" class="buy-btn" target="_blank">
-                                Buy via WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
+                    <!-- Products will be loaded dynamically from Excel -->
                 </div>
             </div>
         </section>
 
+        <!-- Rent Tab Content -->
+        <section id="rent" class="tab-content">
+            <div class="rent-section">
+                <div class="rent-header" data-aos="fade-up">
+                    <h2 class="section-title">Premium Rental Collection</h2>
+                    <p class="section-subtitle">Exclusive designer outfits for your special occasions</p>
+                </div>
+
+                <!-- Rental Categories -->
+                <div class="rental-categories" data-aos="fade-up" data-aos-delay="100">
+                    <button class="category-btn active" data-category="all">All Rentals</button>
+                    <button class="category-btn" data-category="festival">Festival Series</button>
+                    <button class="category-btn" data-category="wedding">Wedding Series</button>
+                </div>
+
+                <!-- Rental Products Grid -->
+                <div class="rentals-grid" id="rentalsGrid">
+                    <!-- Rental products will be loaded dynamically from Excel -->
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- JavaScript -->
-    <script>
-        // Language translations
-        const translations = {
-            en: {
-                academy_name: "Sujata Fashion Academy",
-                tagline: "Crafting Fashion Dreams for 25 Years",
-                academy_tab: "Academy",
-                shop_tab: "Shop",
-                welcome_msg: "Welcome to Excellence in Fashion Education",
-                years_experience: "Years Experience",
-                successful_batches: "Successful Batches",
-                alumni: "Alumni",
-                courses: "Specialized Courses",
-                featured_title: "1 Year Fashion Designing Diploma Course",
-                featured_subtitle: "Master the Complete Art of Fashion Design with India's Most Comprehensive Program",
-                about_title: "About Our Academy",
-                about_text: "With 25 years of excellence in fashion education, Sujata Fashion Academy has been nurturing creative talents and shaping successful fashion careers. Our comprehensive courses combine traditional techniques with modern design principles.",
-                mission_title: "Our Mission",
-                mission_text: "To provide world-class fashion education that empowers students with practical skills and creative vision needed to excel in the fashion industry.",
-                courses_title: "Our Complete Course Portfolio",
-                testimonials_title: "Student Success Stories",
-                faq_title: "Frequently Asked Questions",
-                faq_1_q: "What are the admission requirements?",
-                faq_1_a: "No prior experience required. Basic education (10th pass) is preferred. Passion for fashion and creativity is most important.",
-                faq_2_q: "Do you provide certificates?",
-                faq_2_a: "Yes, we provide completion certificates for all our courses. Our diploma course certificate is recognized in the fashion industry.",
-                faq_3_q: "What is the batch size?",
-                faq_3_a: "We maintain small batch sizes (8-12 students) to ensure personalized attention and hands-on learning experience.",
-                faq_4_q: "Are there any job placement assistance?",
-                faq_4_a: "We provide guidance for setting up your own business and connect you with our network of alumni and industry contacts.",
-                faq_5_q: "Can I take multiple courses together?",
-                faq_5_a: "Yes, you can combine courses. We offer flexible scheduling and discounts for multiple course enrollments.",
-                contact_title: "Get In Touch",
-                contact_subtitle: "Ready to start your fashion journey? Fill out the form below or contact us directly.",
-                shop_title: "Fashion Academy Shop",
-                shop_subtitle: "Eco-friendly fashion pieces crafted by our students and instructors"
-            },
-            hi: {
-                academy_name: "सुजाता फैशन एकेडमी",
-                tagline: "25 सालों से फैशन सपने साकार कर रहे हैं",
-                academy_tab: "एकेडमी",
-                shop_tab: "दुकान",
-                welcome_msg: "फैशन शिक्षा में उत्कृष्टता में आपका स्वागत है",
-                years_experience: "वर्ष अनुभव",
-                successful_batches: "सफल बैच",
-                alumni: "पूर्व छात्र",
-                courses: "विशेष कोर्स",
-                featured_title: "1 वर्षीय फैशन डिजाइनिंग डिप्लोमा कोर्स",
-                featured_subtitle: "भारत के सबसे व्यापक कार्यक्रम के साथ फैशन डिजाइन की पूर्ण कला में महारत हासिल करें",
-                about_title: "हमारी एकेडमी के बारे में",
-                about_text: "फैशन शिक्षा में 25 वर्षों की उत्कृष्टता के साथ, सुजाता फैशन एकेडमी रचनात्मक प्रतिभाओं का पोषण करती आई है और सफल फैशन करियर बनाती आई है। हमारे व्यापक कोर्स पारंपरिक तकनीकों को आधुनिक डिज़ाइन सिद्धांतों के साथ जोड़ते हैं।",
-                mission_title: "हमारा मिशन",
-                mission_text: "विश्व स्तरीय फैशन शिक्षा प्रदान करना जो छात्रों को फैशन उद्योग में उत्कृष्टता प्राप्त करने के लिए आवश्यक व्यावहारिक कौशल और रचनात्मक दृष्टि से सशक्त बनाती है।",
-                courses_title: "हमारा पूरा कोर्स पोर्टफोलियो",
-                testimonials_title: "छात्र सफलता की कहानियाँ",
-                faq_title: "अक्सर पूछे जाने वाले प्रश्न",
-                faq_1_q: "प्रवेश की आवश्यकताएं क्या हैं?",
-                faq_1_a: "कोई पूर्व अनुभव आवश्यक नहीं। बुनियादी शिक्षा (10वीं पास) को प्राथमिकता दी जाती है। फैशन के लिए जुनून और रचनात्मकता सबसे महत्वपूर्ण है।",
-                faq_2_q: "क्या आप प्रमाणपत्र प्रदान करते हैं?",
-                faq_2_a: "हाँ, हम अपने सभी कोर्सों के लिए पूर्णता प्रमाणपत्र प्रदान करते हैं। हमारा डिप्लोमा कोर्स प्रमाणपत्र फैशन उद्योग में मान्यता प्राप्त है।",
-                faq_3_q: "बैच का आकार क्या है?",
-                faq_3_a: "हम व्यक्तिगत ध्यान और व्यावहारिक सीखने के अनुभव को सुनिश्चित करने के लिए छोटे बैच आकार (8-12 छात्र) बनाए रखते हैं।",
-                faq_4_q: "क्या कोई नौकरी प्लेसमेंट सहायता है?",
-                faq_4_a: "हम अपना व्यवसाय स्थापित करने के लिए मार्गदर्शन प्रदान करते हैं और आपको हमारे पूर्व छात्रों और उद्योग संपर्कों के नेटवर्क से जोड़ते हैं।",
-                faq_5_q: "क्या मैं एक साथ कई कोर्स ले सकता हूँ?",
-                faq_5_a: "हाँ, आप कोर्सों को जोड़ सकते हैं। हम लचीली समय सारणी और कई कोर्स नामांकन के लिए छूट प्रदान करते हैं।",
-                contact_title: "संपर्क करें",
-                contact_subtitle: "अपनी फैशन यात्रा शुरू करने के लिए तैयार हैं? नीचे दिया गया फॉर्म भरें या सीधे हमसे संपर्क करें।",
-                shop_title: "फैशन एकेडमी शॉप",
-                shop_subtitle: "हमारे छात्रों और प्रशिक्षकों द्वारा तैयार किए गए पर्यावरण-अनुकूल फैशन के टुकड़े"
-            },
-            mr: {
-                academy_name: "सुजाता फॅशन अकादमी",
-                tagline: "२५ वर्षांपासून फॅशन स्वप्नांना साकार करत आहोत",
-                academy_tab: "अकादमी",
-                shop_tab: "दुकान",
-                welcome_msg: "फॅशन शिक्षणातील उत्कृष्टतेमध्ये आपले स्वागत",
-                years_experience: "वर्षांचा अनुभव",
-                successful_batches: "यशस्वी बॅच",
-                alumni: "माजी विद्यार्थी",
-                courses: "विशेष कोर्स",
-                featured_title: "१ वर्षाचा फॅशन डिझायनिंग डिप्लोमा कोर्स",
-                featured_subtitle: "भारतातील सर्वात व्यापक कार्यक्रमासह फॅशन डिझाइनची संपूर्ण कला शिका",
-                about_title: "आमच्या अकादमीबद्दल",
-                about_text: "फॅशन शिक्षणात २५ वर्षांच्या उत्कृष्टतेसह, सुजाता फॅशन अकादमी सर्जनशील प्रतिभांचे संगोपन करत आली आहे आणि यशस्वी फॅशन करिअर घडवत आली आहे. आमचे सर्वसमावेशक कोर्स पारंपारिक तंत्रांना आधुनिक डिझाइन तत्त्वांसह एकत्र करतात.",
-                mission_title: "आमचे ध्येय",
-                mission_text: "जागतिक दर्जाचे फॅशन शिक्षण प्रदान करणे जे विद्यार्थ्यांना फॅशन उद्योगात उत्कृष्टता मिळवण्यासाठी आवश्यक असलेले व्यावहारिक कौशल्य आणि सर्जनशील दृष्टी देऊन सक्षम बनवते.",
-                courses_title: "आमचा संपूर्ण कोर्स पोर्टफोलिओ",
-                testimonials_title: "विद्यार्थी यश कथा",
-                faq_title: "वारंवार विचारले जाणारे प्रश्न",
-                faq_1_q: "प्रवेशाची आवश्यकता काय आहे?",
-                faq_1_a: "कोणताही पूर्व अनुभव आवश्यक नाही. मूलभूत शिक्षण (१०वी उत्तीर्ण) ला प्राधान्य दिले जाते. फॅशनसाठीची आवड आणि सर्जनशीलता सर्वात महत्त्वाची आहे.",
-                faq_2_q: "तुम्ही प्रमाणपत्र देता का?",
-                faq_2_a: "होय, आम्ही आमच्या सर्व कोर्ससाठी पूर्णत्व प्रमाणपत्र देतो. आमचे डिप्लोमा कोर्स प्रमाणपत्र फॅशन उद्योगात मान्यताप्राप्त आहे.",
-                faq_3_q: "बॅचचा आकार काय आहे?",
-                faq_3_a: "वैयक्तिक लक्ष आणि प्रत्यक्ष शिक्षणाचा अनुभव सुनिश्चित करण्यासाठी आम्ही लहान बॅच आकार (८-१२ विद्यार्थी) राखतो.",
-                faq_4_q: "काही नोकरी प्लेसमेंट मदत आहे का?",
-                faq_4_a: "आम्ही तुमचा स्वतःचा व्यवसाय सुरू करण्यासाठी मार्गदर्शन देतो आणि तुम्हाला आमच्या माजी विद्यार्थ्यांच्या आणि उद्योग संपर्कांच्या नेटवर्कशी जोडतो.",
-                faq_5_q: "मी एकाच वेळी अनेक कोर्स घेऊ शकतो का?",
-                faq_5_a: "होय, तुम्ही कोर्स एकत्र करू शकता. आम्ही लवचिक वेळापत्रक आणि अनेक कोर्स नोंदणीसाठी सूट देतो.",
-                contact_title: "संपर्कात रहा",
-                contact_subtitle: "तुमचा फॅशन प्रवास सुरू करायला तयार आहात? खालील फॉर्म भरा किंवा थेट आमच्याशी संपर्क साधा.",
-                shop_title: "फॅशन अकादमी शॉप",
-                shop_subtitle: "आमच्या विद्यार्थ्यांनी आणि प्रशिक्षकांनी तयार केलेले पर्यावरणपूरक फॅशन तुकडे"
-            }
-        };
+    <!-- Modals -->
+    <div id="enrollmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Quick Enrollment</h3>
+            <p>Get started with our flagship 1 Year Fashion Design Diploma Course</p>
+            <div class="modal-cta">
+                <a href="https://wa.me/919763416561?text=Hi! I want to enroll in the 1 Year Fashion Design Diploma Course. Please provide more details about admission process." class="modal-btn primary" target="_blank">
+                    📞 Contact via WhatsApp
+                </a>
+                <a href="javascript:void(0)" onclick="scrollToContact()" class="modal-btn secondary">
+                    📝 Fill Inquiry Form
+                </a>
+            </div>
+        </div>
+    </div>
 
-        // Tab switching functionality
-        function showTab(tabName) {
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Remove active class from all buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show selected tab and activate button
-            document.getElementById(tabName).classList.add('active');
-            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-        }
-
-        // Course accordion toggle
-        function toggleCourse(courseId) {
-            const content = document.getElementById(courseId);
-            const icon = content.previousElementSibling.querySelector('.toggle-icon');
-            
-            if (content.classList.contains('active')) {
-                content.classList.remove('active');
-                icon.textContent = '+';
-            } else {
-                content.classList.add('active');
-                icon.textContent = '−';
-            }
-        }
-
-        // FAQ accordion toggle
-        function toggleFaq(faqId) {
-            const content = document.getElementById(faqId);
-            const icon = content.previousElementSibling.querySelector('.toggle-icon');
-            
-            if (content.classList.contains('active')) {
-                content.classList.remove('active');
-                icon.textContent = '+';
-            } else {
-                content.classList.add('active');
-                icon.textContent = '−';
-            }
-        }
-
-        // Language switching
-        function switchLanguage(lang) {
-            document.querySelectorAll('[data-translate]').forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-        }
-
-        // Product filtering
-        function filterProducts(category) {
-            const products = document.querySelectorAll('.product-card');
-            const buttons = document.querySelectorAll('.category-btn');
-            
-            // Update button states
-            buttons.forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`[data-category="${category}"]`).classList.add('active');
-            
-            // Show/hide products
-            products.forEach(product => {
-                if (category === 'all') {
-                    product.style.display = 'block';
-                } else {
-                    const categories = product.getAttribute('data-categories');
-                    if (categories && categories.includes(category)) {
-                        product.style.display = 'block';
-                    } else {
-                        product.style.display = 'none';
-                    }
-                }
-            });
-        }
-
-        // Form submission
-        function submitForm(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const name = formData.get('name');
-            const phone = formData.get('phone');
-            const email = formData.get('email');
-            const course = formData.get('course');
-            const message = formData.get('message');
-            
-            const whatsappMessage = `Hi, I'm ${name}. I'm interested in joining Sujata Fashion Academy.%0A%0APhone: ${phone}%0AEmail: ${email}%0ACourse Interest: ${course}%0A%0AMessage: ${message}`;
-            
-            window.open(`https://wa.me/919763416561?text=${whatsappMessage}`, '_blank');
-        }
-
-        // Event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            // Tab buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    showTab(this.getAttribute('data-tab'));
-                });
-            });
-
-            // Language selector
-            document.getElementById('languageSelect').addEventListener('change', function() {
-                switchLanguage(this.value);
-            });
-
-            // Category filter buttons
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterProducts(this.getAttribute('data-category'));
-                });
-            });
-        });
-    </script>
-=======
-    <!-- Tab Content Containers -->
-    <main class="main-content">
-        <!-- Academy Tab Content -->
-        <div id="academy-content" class="tab-content active">
-            <section class="hero-section">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1 class="hero-title">Sujata Fashion Academy</h1>
-                        <p class="hero-subtitle">25 Years of Fashion Education Excellence</p>
-                        <div class="hero-buttons">
-                            <button class="btn btn-primary">Explore Courses</button>
-                            <button class="btn btn-outline">View Gallery</button>
-                        </div>
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <div class="main-image-container">
+                        <img id="modalMainImage" src="" alt="Product Image" class="modal-main-image">
+                    </div>
+                    <div class="image-thumbnails" id="imageThumbnails">
+                        <!-- Thumbnails will be populated dynamically -->
                     </div>
                 </div>
-            </section>
-        </div>
-
-        <!-- Shop Tab Content -->
-        <div id="shop-content" class="tab-content">
-            <section class="shop-hero">
-                <div class="container">
-                    <h1>Designer Fashion Shop</h1>
-                    <p>Premium quality designer outfits crafted with excellence</p>
+                <div class="modal-info-section">
+                    <h3 id="modalProductName"></h3>
+                    <p id="modalProductCategory" class="product-category"></p>
+                    <p id="modalProductPrice" class="product-price"></p>
+                    <div id="modalProductDescription" class="product-description"></div>
+                    <div class="modal-actions">
+                        <button id="modalWhatsAppBtn" class="whatsapp-btn">
+                            💬 Order via WhatsApp
+                        </button>
+                    </div>
                 </div>
-            </section>
+            </div>
         </div>
+    </div>
 
-        <!-- Rent Tab Content -->
-        <div id="rent-content" class="tab-content">
-            <section class="rent-hero">
-                <div class="container">
-                    <h1>Premium Rental Collection</h1>
-                    <p>Exquisite outfits for your special occasions</p>
-                </div>
-            </section>
+    <!-- Video Modal for Testimonials -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content video-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <video id="testimonialVideo" controls preload="metadata">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-info">
+                <h3 id="videoTestimonialName"></h3>
+                <p id="videoTestimonialCourse"></p>
+                <p id="videoTestimonialReview"></p>
+            </div>
         </div>
-    </main>
+    </div>
 
-    <!-- JavaScript Files -->
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919763416561?text=Hi! I visited your website and would like to know more about your courses and services." target="_blank" class="whatsapp-link">
+            💬
+        </a>
+    </div>
+
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
->>>>>>> 1ea756a0d8129ed61c8dc57f87ddd7440afd4542
+
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeWebsite();
+        });
+    </script>
 </body>
 </html>
